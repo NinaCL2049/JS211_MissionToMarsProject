@@ -11,11 +11,47 @@ const jobTypes = {
 
 // Your code will go here
 
+class CrewMember {
+  constructor(name, job, specialSkill, ship){
+    this.name = name;
+    this.job = job;
+    this.specialSkill = specialSkill;
+    this.ship = null;
+  }
+  enterShip(shipName) {
+    if (shipName instanceof Ship) {
+      
+      this.ship = shipName;
+      shipName.crew.push(this)
+    }
+  }
+}
 
+// const Roci = new ship("Rocinante", "MCRN", "warship", "Drummer")
+// const Drummer = new crewMember("Camina Drummer", "Bosmang", "tactics", "Rocinante")
+// const amos = new crewMember("Amos Burton", "mechanic", "")
+// this is on my laptop
 
+class Ship {
+  constructor(name, type, ability, crew){
+    this.name = name;
+    this.type = type;
+    this.ability = ability;
+    this.crew = []
+  }
+  missionStatement() {
+    if (this.crew.length >= 1) {
+      return this.ability
+    } else {return "Can't perform a mission yet."}
+  }
+}
 
+// entership should work like this: crewMember1.enterShip(mav);
+// const enterShip = (theCrew, theShip)
 
+// this should append the crew member to the ship and the ship to the crew member. Or rather, for the ship the crewMember name should be added to the ship's 'name' values, and the ship's name should be added to the crew's 'ship' value. Does the ship need to hold more than one crew? It doesn't look like it based on the tests below.
 
+// const myCrew = new jobTypes
 
 // Begin by reading the tests and building a function that will full each one.
 // As you build, you might not have to build them in order, maybe you do...
